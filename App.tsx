@@ -6,6 +6,7 @@ import {ROUTE_KEY} from './src/config/constains';
 import MainScreen from './src/screens/MainScreen';
 import CameraKit from './src/screens/CameraKit';
 import ScrollCamera from './src/screens/ScrollCamera';
+import QRCodeScreen from './src/screens/QRCodeScreen';
 interface Props {}
 
 const Stack = createStackNavigator();
@@ -18,6 +19,7 @@ const App = (props: Props) => {
         <Stack.Screen name={ROUTE_KEY.MainScreen} component={MainScreen} />
         <Stack.Screen name={ROUTE_KEY.CameraKit} component={CameraKit} />
         <Stack.Screen name={ROUTE_KEY.ScrollCamera} component={ScrollCamera} />
+        <Stack.Screen name={ROUTE_KEY.QRCodeScreen} component={QRCodeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

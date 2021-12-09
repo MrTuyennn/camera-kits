@@ -84,6 +84,14 @@ export default class MainScreen extends React.PureComponent<
               navigation.push(ROUTE_KEY.CameraKit);
             }
           }}
+          onScanQRCode={async () => {
+            const result = await requestCameraPermission((arg: any) => {
+              return arg;
+            });
+            if (result) {
+              navigation.push(ROUTE_KEY.QRCodeScreen);
+            }
+          }}
         />
       </>
     );
@@ -95,12 +103,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: ptColor.blue,
   },
   imageContent: {
     height: 200,
     width: 200,
-    backgroundColor: ptColor.black,
   },
   image: {
     height: '100%',

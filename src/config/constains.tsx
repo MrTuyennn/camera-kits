@@ -4,6 +4,7 @@ export const ROUTE_KEY = {
   MainScreen: 'MainScreen',
   CameraKit: 'CameraKit',
   ScrollCamera: 'ScrollCamera',
+  QRCodeScreen: 'QRCodeScreen',
 };
 
 export const requestPermission = async (callback: any) => {

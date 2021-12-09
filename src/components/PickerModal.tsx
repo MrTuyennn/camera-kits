@@ -6,10 +6,11 @@ import BottomModal from './BottomModal';
 interface Props {
   onPickerCamera?: () => void;
   onPickerImage?: () => void;
+  onScanQRCode?: () => void;
 }
 
 const PickerModal = forwardRef((props: Props, ref) => {
-  const {onPickerCamera, onPickerImage} = props;
+  const {onPickerCamera, onPickerImage, onScanQRCode} = props;
   // @ts-ignore
   const bottomModalRef = useRef<BottomModal>(null);
 
@@ -36,6 +37,13 @@ const PickerModal = forwardRef((props: Props, ref) => {
       onPickerImage();
     }
   };
+
+  const onPickerScanQRCode = () => {
+    hide();
+    if (onScanQRCode) {
+      onScanQRCode();
+    }
+  };
   useImperativeHandle(ref, () => ({
     show,
     hide,
@@ -53,6 +61,12 @@ const PickerModal = forwardRef((props: Props, ref) => {
           onPress={() => pickerImage()}
           style={styles.touchableOpacity}>
           <Text>Chọn hình ảnh ảnh</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => onPickerScanQRCode()}
+          style={styles.touchableOpacity}>
+          <Text>Quét mã QRCode</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
